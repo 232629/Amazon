@@ -16,7 +16,6 @@ public class PageSignin extends PageCommon {
     public IMySelenideElement btnSignIn = new AmazonElement($(By.id("signInSubmit")));
     @Step("Login by {login} / {pas}")
     public void login(String login, String pas) {
-
         btnAccountList.click();
 
         txtLogin.setValue(login);

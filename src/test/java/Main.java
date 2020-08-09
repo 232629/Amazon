@@ -13,7 +13,6 @@ public class Main {
 
     @BeforeAll
     public static void beforeAllTests() {
-        System.out.println("BeforeClass");
         Browser.initBrowser();
         AllureEnvironments.set();
     }
