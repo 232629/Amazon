@@ -24,6 +24,7 @@ public class SearchElement extends AmazonElement {
         ElementsCollection r = getResults();
         if (!q.contains("pro"))
             r = r.filterBy(Condition.not(Condition.text("pro")));
+        r.shouldBe(CollectionCondition.sizeGreaterThan(0));
         String[] words = q.split(" ");
         for (String w : words)
         {
@@ -60,11 +61,8 @@ public class SearchElement extends AmazonElement {
                 minPrice = currentPrice;
                 el = r.get(i);
             }
-            System.out.println(currentPrice);
         }
-        System.out.println(minPrice);
         return el.find(By.xpath(".//span[@class='a-price-whole']"));
     }
-
 
 }

@@ -1,11 +1,9 @@
 package elements;
 
-import com.codeborne.selenide.Command;
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Coordinates;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -498,5 +496,13 @@ public abstract class MySelenideElement implements IMySelenideElement {
     public SelenideElement preceding(int i) { return element.preceding(i); }
 
     //My functions
+    @Override
+    public void myMethod() { throw  new NotImplementedException(); }
+
+    @Override
+    public void clickJs() {
+        JavascriptExecutor executor = (JavascriptExecutor) WebDriverRunner.getWebDriver();
+        executor.executeScript("arguments[0].click();", element);
+    }
 
 }

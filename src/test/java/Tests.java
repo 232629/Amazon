@@ -2,7 +2,10 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.openqa.selenium.By;
 import pages.*;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class Tests extends Main {
 
@@ -12,7 +15,7 @@ public class Tests extends Main {
             "iphone 11 256Gb black",
             "iphone 11 64Gb green"
     })
-    public void buyIphone(String q) throws InterruptedException {
+    public void buyIphone(String q) {
 
         String login = "kijowe8154@icanav.net";
         String pas = "Password1";
@@ -29,9 +32,8 @@ public class Tests extends Main {
         pageReviewOrder.addToBasket();
 
         PageBasket pageBasket = new PageBasket();
-        pageBasket.btnDelete.click();
-        pageBasket.leftMenu.click();
-        pageBasket.btnSignOut.click();
+        pageBasket.btnDelete.clickJs();
+        pageBasket.singOut();
 
     }
 

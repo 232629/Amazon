@@ -1,6 +1,5 @@
 package pages;
 
-
 import elements.AmazonElement;
 import elements.IMySelenideElement;
 import io.qameta.allure.Step;
@@ -14,6 +13,7 @@ public class PageSignin extends PageCommon {
 
     public IMySelenideElement txtPassword = new AmazonElement($(By.id("ap_password")));
     public IMySelenideElement btnSignIn = new AmazonElement($(By.id("signInSubmit")));
+
     @Step("Login by {login} / {pas}")
     public void login(String login, String pas) {
         btnAccountList.click();
